@@ -46,7 +46,7 @@ cmd3 = "cat /sys/class/thermal/thermal_zone0/temp | awk 'NR == 1 { print $1 / 10
 cmd4 ="/opt/vc/bin/vcgencmd measure_temp | cut -c 6- | cut -c -4"
 
 # CPU usage - print s/4 means divided by four (number of cores)
-cmd5 = "top -bn 1 | awk 'NR>7{s+=$9} END {print s/4}'"
+cmd = "top -bn 1 | awk 'NR>7{s+=$9} END {print s/4}'"
 
 # Memory usage 
 cmd6 = "free | awk 'FNR == 3 {print $3/($3+$4)*100}' | cut -c -3"
@@ -60,44 +60,44 @@ cmd8 ="bash rx.sh"
 # Calculate TX rate
 cmd9 ="bash tx.sh"
 
+inet = run_cmd(cmd1)
+exnet= run_cmd(cmd2)
+tempcpu = run_cmd(cmd3)
+tempgpu = run_cmd(cmd4)
+usagecpu = run_cmd(cmd)
+usagemem = run_cmd(cmd6)
+freedisk = run_cmd(cmd7)
+rx = run_cmd(cmd8)
+tx = run_cmd(cmd9)
+
 while 1:
-
-	inet = run_cmd(cmd1)
-	exnet= run_cmd(cmd2)
-	tempcpu = run_cmd(cmd3)
-	tempgpu = run_cmd(cmd4)
-	usagecpu = run_cmd(cmd5)
-	usagemem = run_cmd(cmd6)
-	freedisk = run_cmd(cmd7)
-	rx = run_cmd(cmd8)
-	tx = run_cmd(cmd9)
-
 	# Print internal and external IP address
-	lcd.clear()
-	lcd.message('%s' % (inet))
-	lcd.message('%s' % (exnet))
-	time.sleep(3.0)
-	lcd.clear()
+#	lcd.message('%s' % (inet))
+#	lcd.message('%s' % (exnet))
+#	time.sleep(3.0)
+#	lcd.clear()
 
 	# Print Rpi CPU and GPU temperature
-	lcd.message("CPU Temperature: \n"+ str(tempcpu)+ chr(223)+ "C")
-	time.sleep(3.0)
-	lcd.clear()
-	lcd.message("GPU Temperature: \n"+ str(tempgpu)+ chr(223)+ "C")
-	time.sleep(3.0)
-	lcd.clear()
+#	lcd.message("CPU Temperature: \n"+ str(tempcpu)+ chr(223)+ "C")
+#	time.sleep(3.0)
+#	lcd.clear()
+#	lcd.message("GPU Temperature: \n"+ str(tempgpu)+ chr(223)+ "C")
+#	time.sleep(3.0)
+#	lcd.clear()
 
 	# Print CPU and Memory Usage
 	lcd.message('Cpu %% %s' % (usagecpu))
-	lcd.message('Mem %% %s' % (usagemem))
-	time.sleep(3.0)
-	lcd.clear()
+#	lcd.message('Mem %% %s' % (usagemem))
+#	time.sleep(3.0)
+#	lcd.clear()
 
 	# Print disk free
-        lcd.message('Free disk space: \n%s' % (freedisk))
-        time.sleep(3.0)
-        lcd.clear()
+ #       lcd.message('Free disk space: \n%s' % (freedisk))
+  #      time.sleep(3.0)
+   #     lcd.clear()
 
 	# Print network speed
-	lcd.message('Rx KB/s: %s' % (rx))
-	lcd.message('Tx KB/s: %s' % (tx))
+#	lcd.message('Rx KB/s: %s' % (rx))
+#	lcd.message('Tx KB/s: %s' % (tx))
+#	time.sleep(3.0)
+#	lcd.clear()
