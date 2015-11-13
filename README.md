@@ -24,4 +24,6 @@ How to use:
 
 For detailed instructions, check my blog post (coming soon).
 
+Video: https://www.youtube.com/watch?v=5YkLTBd5-bw
+
 ![alt tag](https://raw.githubusercontent.com/s55ma/16-2-LCD-rpisystat/master/img/16x2_lcd_display_rpi2.jpg)
