@@ -21,3 +21,5 @@ How to use:
 4. Edit rpisystat.py to match your network adapter (eth0 or wlan0)
 5. Edit rx.sh and tx.sh to match your network adapter (eth0 or wlan0)
 6. Run rpisystat.py
+
+For detailed instructions, check my blog post (coming soon).
