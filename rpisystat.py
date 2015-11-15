@@ -45,14 +45,14 @@ cmd3 = "cat /sys/class/thermal/thermal_zone0/temp | awk 'NR == 1 { print $1 / 10
 # Rpi GPU temperature
 cmd4 ="/opt/vc/bin/vcgencmd measure_temp | cut -c 6- | cut -c -4"
 
-# CPU usage - print s/4 means divided by four (number of cores)
-cmd5 = "top -bn 1 | awk 'NR>7{s+=$9} END {print s/4}'"
+# CPU usage
+cmd5 = "bash cpu_usage.sh"
 
 # Memory usage 
 cmd6 = "free | awk 'FNR == 3 {print $3/($3+$4)*100}' | cut -c -3"
 
 # Get free disk space
-cmd7 = "df -h | awk 'NR==2 { print $3 }'"
+cmd7 = "df -h | sed -n 2p | awk '{ printf $4 }'"
 
 # Calculate RX rate
 cmd8 ="bash rx.sh"
