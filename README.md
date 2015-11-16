@@ -22,7 +22,7 @@ How to use:
 5. Edit rx.sh and tx.sh to match your network adapter (eth0 or wlan0)
 6. chmod +x *.sh *.py
 7. Run rpisystat.py
-For detailed instructions, check my blog post (coming soon).
+For detailed instructions, check my blog post https://s55ma.radioamater.si/2015/11/16/raspberrypi-2-16x2-lcd-with-system-stats-script/
 
 Video: https://www.youtube.com/watch?v=5YkLTBd5-bw
 
